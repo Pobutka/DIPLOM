@@ -14,7 +14,7 @@ def test_pickup_from_shop(config):
     api.add_to_cart()
     """Проверяем добавление товара в корзину"""
     assert api.view_cart() == int(config.get('data', 'productID'))
-    order_id = api.order_create(213, 'shop', 'Ивано Ива ИВ', '79123456789', 'email@gmail.com')
+    order_id = api.order_create(213, 'shop', 'Ивано Ива ИВ', '79996960530', 'email@gmail.com')
     """Проверяем успешное оформление заказа"""
     assert api.view_order(order_id) == 200
     """Проверяем успешное удаление заказа"""
@@ -32,7 +32,7 @@ def test_courier_in_rus(config):
     api.add_to_cart()
     """Проверяем добавление товара в корзину"""
     assert api.view_cart() == int(config.get('data', 'productID'))
-    order_id = api.order_create(213, 'courier', 'Ивано Ива ИВ', '79123456789', 'email@gmail.com')
+    order_id = api.order_create(213, 'courier', 'Ивано Ива ИВ', '79996960530', 'email@gmail.com')
     """Проверяем успешное оформление заказа"""
     assert api.view_order(order_id) == 200
     """Проверяем успешное удаление заказа"""
@@ -50,7 +50,7 @@ def test_rus_post(config):
     api.add_to_cart()
     """Проверяем добавление товара в корзину"""
     assert api.view_cart() == int(config.get('data', 'productID'))
-    order_id = api.order_create(213, 'post', 'Ивано Ива ИВ', '79123456789', 'email@gmail.com')
+    order_id = api.order_create(213, 'post', 'Ивано Ива ИВ', '79996960530', 'email@gmail.com')
     """Проверяем успешное оформление заказа"""
     assert api.view_order(order_id) == 200
     """Проверяем успешное удаление заказа"""
@@ -68,7 +68,7 @@ def test_courier_latin_username(config):
     api.add_to_cart()
     """Проверяем добавление товара в корзину"""
     assert api.view_cart() == int(config.get('data', 'productID'))
-    order_id = api.order_create(213, 'courier', 'Lohn John', '79123456789', 'email@gmail.com')
+    order_id = api.order_create(213, 'courier', 'Lohn John', '79996960530', 'email@gmail.com')
     """Проверяем неуспешное оформление заказа"""
     assert api.view_order(order_id) == 400
 
@@ -85,7 +85,7 @@ def test_useremail_with_wrong_domain(config):
     api.add_to_cart()
     """Проверяем добавление товара в корзину"""
     assert api.view_cart() == int(config.get('data', 'productID'))
-    order_id = api.order_create(213, 'shop', 'Ивано Ива ИВ', '79123456789', 'sanich@aaa.aaaaa')
+    order_id = api.order_create(213, 'shop', 'Ивано Ива ИВ', '79996960530', 'sanich@aaa.aaaaa')
     res = api.view_order(order_id)
     api.delete_order(order_id)
     """Проверяем успешное оформление заказа"""
